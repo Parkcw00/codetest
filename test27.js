@@ -10,7 +10,7 @@ function solution(phone_number) {
 
   const star = "*".repeat(numLength - 4);
 
-  return star + phone_number.slice(-4);
+  return console.log(star + phone_number.slice(-4));
 }
 
 solution("01033334444");
