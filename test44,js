@@ -1,8 +1,20 @@
-function solution(sizes) {
-  sizes = sizes.map(([w, h]) => (w > h ? [w, h] : [h, w]));
-  //111
-  const maxWidth = Math.max(...sizes.map((size) => size[0]));
-  const maxHeight = Math.max(...sizes.map((size) => size[1]));
-
-  return maxWidth * maxHeight;
+function solution(s, n) {
+  let result = "";
+  for (let char of s) {
+    if (char >= "a" && char <= "z") {
+      // 소문자일 경우
+      result += String.fromCharCode(
+        ((char.charCodeAt(0) - "a".charCodeAt(0) + n) % 26) + "a".charCodeAt(0)
+      );
+    } else if (char >= "A" && char <= "Z") {
+      // 대문자일 경우
+      result += String.fromCharCode(
+        ((char.charCodeAt(0) - "A".charCodeAt(0) + n) % 26) + "A".charCodeAt(0)
+      );
+    } else {
+      // 공백일 경우
+      result += char;
+    }
+  }
+  return result;
 }
